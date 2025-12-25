@@ -1,27 +1,45 @@
+// Debug mode: true when extension is loaded unpacked (developer mode)
+const DEBUG = !('update_url' in chrome.runtime.getManifest());
+
+function debugLog(...args) {
+  if (DEBUG) {
+    console.log('[POE2 Save Filter]', ...args);
+  }
+}
+
+debugLog('Extension loaded (DEBUG MODE)');
 
 function waitForElements(selector, callback, timeout = 10000) {
+  debugLog('waitForElements: looking for', selector);
   const startTime = Date.now();
   const interval = setInterval(() => {
     const elements = document.querySelectorAll(selector);
     if (elements.length > 0) {
+      debugLog('waitForElements: FOUND', selector, elements);
       clearInterval(interval);
       callback(elements);
     }
     if (Date.now() - startTime > timeout) {
+      debugLog('waitForElements: TIMEOUT for', selector);
       clearInterval(interval);
     }
   }, 100);
 }
 
 waitForElements('.controls-center', (elements) => {
+  debugLog('controls-center callback triggered');
 
-  elements.forEach((targetDiv) => {
+  elements.forEach((targetDiv, index) => {
+    debugLog('Processing targetDiv', index, targetDiv);
     if (!targetDiv.querySelector('#save-filter-btn')) {
+      debugLog('No save-filter-btn found, setting up...');
       const btnSearch = document.querySelector('.search-btn');
       const btnClear = document.querySelector('.clear-btn');
+      debugLog('btnSearch:', btnSearch, 'btnClear:', btnClear);
       const saveButton = document.createElement('button');
 
       btnSearch.addEventListener('click', function () {
+        debugLog('Search button clicked!');
         
         saveButton.textContent = 'Save Filter';
         saveButton.id = 'save-filter-btn';
@@ -50,9 +68,12 @@ waitForElements('.controls-center', (elements) => {
     }
     const interval = setInterval(() => {
       const urlPath = window.location.href;
-      const regex = /\/Standard\/(.+)/;
+      const regex = /\/trade2\/search\/poe2\/[^\/]+\/(.+)/;
+      debugLog('Interval check - URL:', urlPath, 'Regex match:', regex.test(urlPath));
       if (regex.test(urlPath)) {
+        debugLog('URL matches! Checking for existing button...');
         if (!targetDiv.querySelector('#save-filter-btn')) {
+          debugLog('Creating Save Filter button!');
           const btnClear = document.querySelector('.clear-btn');
           const saveButton = document.createElement('button');
   
@@ -88,7 +109,9 @@ waitForElements('.controls-center', (elements) => {
           });
 
           if(!targetDiv.querySelector('#save-filter-btn')){
+            debugLog('Appending button to targetDiv');
             targetDiv.appendChild(saveButton);
+            debugLog('Button appended successfully!');
           }
          
           btnClear.addEventListener('click', function () {
@@ -104,9 +127,11 @@ waitForElements('.controls-center', (elements) => {
   });
 
   const targetNode = document.querySelector('.search-bar.search-advanced');
+  debugLog('MutationObserver targetNode:', targetNode);
 
-  
+
   const observer = new MutationObserver((mutationsList, observer) => {
+      debugLog('MutationObserver triggered, mutations:', mutationsList.length);
       for (let mutation of mutationsList) {
         const saveButton = document.getElementById('save-filter-btn');
         const btnSearch = document.querySelector('.search-btn');
