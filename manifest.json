@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "POE2 - Save Trade Filter",
-    "version": "1.5",
-    "description": "Save Filter for Path of Exile 2 Trade Site",
+    "name": "POE2 Trade Tools",
+    "version": "1.0.0",
+    "description": "Tools to enhance your trading experience in Path of Exile 2",
     "content_scripts": [
       {
         "matches": ["https://fr.pathofexile.com/trade2/search/**", "https://www.pathofexile.com/trade2/search/**", "https://br.pathofexile.com/trade2/search/**", "https://ru.pathofexile.com/trade2/search/**", "https://th.pathofexile.com/trade2/search/**", "https://de.pathofexile.com/trade2/search/**", "https://es.pathofexile.com/trade2/search/**", "https://jp.pathofexile.com/trade2/search/**"],
