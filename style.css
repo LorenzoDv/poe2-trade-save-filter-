@@ -1,8 +1,8 @@
 @font-face {
-font-family: 'fontin';
-src: url('assets/font/Fontin-Regular.ttf') format('truetype');
-font-weight: normal;
-font-style: normal;
+    font-family: 'fontin';
+    src: url('assets/font/Fontin-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 * {
@@ -11,162 +11,254 @@ font-style: normal;
     box-sizing: border-box;
 }
 
-.dev-by {
-    color: #b77b23;
-    text-align: center;
-    margin-top: 15px;
-}
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: rgba(10, 10, 10, .8);
+    font-family: 'fontin', 'Arial', sans-serif;
+    background: linear-gradient(180deg, #0d1a0d 0%, #0a0f0a 50%, #0d1410 100%);
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 500px;
+    width: 520px;
     text-transform: uppercase;
+    position: relative;
 }
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(ellipse at center top, rgba(0, 180, 80, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at center bottom, rgba(0, 100, 50, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
 .popup-container {
     width: 100%;
-    padding: 20px;
-}
-#savedUrlsContainer {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.url-item {
-    display: flex;           
-    align-items: center;     
-    margin-bottom: 10px; 
-    justify-content: space-between;    
-    background-color: rgba(0, 0, 0, .5);
-    padding: 5px 15px;
+    padding: 25px;
+    position: relative;
+    border: 1px solid #3d5c3d;
+    background: linear-gradient(180deg, rgba(20, 35, 20, 0.95) 0%, rgba(10, 18, 12, 0.98) 100%);
+    box-shadow:
+        inset 0 1px 0 rgba(100, 180, 100, 0.1),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(0, 80, 40, 0.3);
 }
 
-.url-input {
-    width: 150px;              
-    margin-right: 10px;         
-    padding: 5px;               
-    border: 1px solid #ccc;     
-    border-radius: 4px;
+/* Header com logo */
+.header-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
 }
 
-.url-item a {
-    margin-right: 10px;
-    color: white;
-    background-color: #5a3806;
-    text-decoration: none;
-    font-family: 'fontin';
-    padding: 10px;
-    border: 1px solid #8a5609 !important;
-}
-.url-item a:hover {
-    background-color: #724708 !important;
+.header-logo img {
+    width: 80px;
+    height: 80px;
+    filter: drop-shadow(0 0 10px rgba(0, 200, 100, 0.4));
 }
 
-.trade2-website{
-    color: #b77b23;
-    text-decoration: none;
-    background-color: #0f304d;
-    border: 1px solid #4c4c7d !important;
-    padding: 10px;
-    display: block;
-    margin-bottom: 25px;
-    font-family: 'fontin';
+.popup-container h2 {
+    font-size: 1.4em;
+    color: #c9aa71;
+    margin-bottom: 15px;
+    text-align: center;
+    font-family: 'fontin', serif;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(180, 140, 80, 0.3);
 }
-.trade2-website:hover {
-    background-color: #133d62 !important;
-}
-.top-popup{
+
+/* Top buttons */
+.top-popup {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-.popup-container h2 {
-    font-size: 1.5em;
-    color: white;
+    gap: 15px;
     margin-bottom: 20px;
+}
+
+.trade2-website {
+    color: #c9aa71;
+    text-decoration: none;
+    background: linear-gradient(180deg, #1a2f1a 0%, #0f1f0f 100%);
+    border: 1px solid #3d5c3d;
+    padding: 10px 15px;
+    font-family: 'fontin', serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
     text-align: center;
-    font-family: 'fontin';
-    font-weight: 200;
+    flex: 1;
 }
 
-.url-description{
-    color: white;
-}
-.edit-button{
-    margin-right: 15px;
-    margin-left: 15px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-}
-.edit-button i{
-    font-size: 22px;
-    color: rgb(75 110 133);
+.trade2-website:hover {
+    background: linear-gradient(180deg, #2a4f2a 0%, #1a3f1a 100%);
+    border-color: #5a8a5a;
+    color: #e0c990;
+    box-shadow: 0 0 15px rgba(0, 150, 80, 0.2);
 }
 
-.delete-button{
-    margin-right: 15px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-}
-.delete-button i{
-    font-size: 22px;
-    color: #7d2626;
-}
-.url-buttons{
-    display: flex;
-}
-.save-button{
-    margin-right: 15px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-}
-.save-button i{
-    font-size: 22px;
-    color: #1f5b1f;
-}
-.url-description{
-    width: 100px;
-    overflow-wrap: anywhere;
-}
-
-.github{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .github:hover img{
-    background-color: white;
-    border-radius: 100%;
-    transition: 0.2s all linear;
-  }
-  .github img{
-    width: 30px;
-    height: 30px;
-    transition: 0.2s all linear;
-  }
-  .disclaimer{
-    color: white;
-    font-size: 10px;
-    text-align: center;
-    font-family: 'fontin';
-  }
-
-#paypal{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#paypal a {
-    margin: 5px !important;
-}
-hr{
+/* Dividers */
+hr {
     border: none;
     height: 1px;
-    background-color: #465260;
+    background: linear-gradient(90deg, transparent, #3d5c3d, #5a8a5a, #3d5c3d, transparent);
+    margin: 15px 0;
+}
+
+/* Saved URLs Container */
+#savedUrlsContainer {
+    margin: 20px 0;
+    min-height: 40px;
+}
+
+#savedUrlsContainer p {
+    color: #6a8a6a;
+    text-align: center;
+    font-style: italic;
+    padding: 20px;
+}
+
+.url-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    background: linear-gradient(180deg, rgba(30, 50, 30, 0.6) 0%, rgba(20, 35, 20, 0.8) 100%);
+    padding: 12px 15px;
+    border: 1px solid #2a4a2a;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+.url-item:hover {
+    border-color: #4a7a4a;
+    box-shadow: 0 0 10px rgba(0, 150, 80, 0.15);
+}
+
+.url-input {
+    width: 150px;
+    margin-right: 10px;
+    padding: 8px 10px;
+    border: 1px solid #3d5c3d;
+    border-radius: 2px;
+    background: rgba(10, 20, 10, 0.8);
+    color: #c9aa71;
+    font-family: 'fontin', serif;
+}
+
+.url-input:focus {
+    outline: none;
+    border-color: #5a8a5a;
+    box-shadow: 0 0 5px rgba(0, 150, 80, 0.3);
+}
+
+.url-item a:not(.github) {
+    margin-right: 10px;
+    color: #00c853;
+    background: linear-gradient(180deg, #1a3020 0%, #0f2015 100%);
+    text-decoration: none;
+    font-family: 'fontin', serif;
+    padding: 10px 15px;
+    border: 1px solid #2d5a35;
+    font-size: 11px;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+
+.url-item a:not(.github):hover {
+    background: linear-gradient(180deg, #2a5030 0%, #1a4025 100%);
+    border-color: #4a8a55;
+    color: #40ff80;
+    box-shadow: 0 0 12px rgba(0, 200, 100, 0.25);
+}
+
+.url-description {
+    color: #a0c0a0;
+    width: 120px;
+    overflow-wrap: anywhere;
+    font-size: 13px;
+}
+
+.url-buttons {
+    display: flex;
+    align-items: center;
+}
+
+/* Action Buttons */
+.edit-button,
+.save-button,
+.delete-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    transition: all 0.2s ease;
+    margin: 0 5px;
+}
+
+.edit-button i {
+    font-size: 18px;
+    color: #5a9a9a;
+    transition: all 0.2s ease;
+}
+
+.edit-button:hover i {
+    color: #80d0d0;
+    text-shadow: 0 0 8px rgba(80, 200, 200, 0.5);
+}
+
+.save-button i {
+    font-size: 18px;
+    color: #4a9a4a;
+    transition: all 0.2s ease;
+}
+
+.save-button:hover i {
+    color: #60d060;
+    text-shadow: 0 0 8px rgba(0, 200, 100, 0.5);
+}
+
+.delete-button i {
+    font-size: 18px;
+    color: #9a4a4a;
+    transition: all 0.2s ease;
+}
+
+.delete-button:hover i {
+    color: #d06060;
+    text-shadow: 0 0 8px rgba(200, 80, 80, 0.5);
+}
+
+/* Footer section */
+#github-link {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#github-link a {
+    flex: 0;
+    padding: 10px 30px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0f0a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3d5c3d;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #5a8a5a;
 }
