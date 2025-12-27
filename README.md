@@ -1,20 +1,48 @@
-## POE2 chrome extension for Save Filter for Path of Exile 2 trade site
+# POE2 Trade Tools
 
+A Chrome extension with tools to enhance your trading experience in Path of Exile 2.
 
-This extension adds a Save button to the Path of Exile 2 trade site. The button becomes active once a search is performed. If you're satisfied with the search results, you can choose to save the filter.
+> **Note:** This project is a fork of [poe2-trade-save-filter](https://github.com/LorenzoDv/poe2-trade-save-filter) originally created by [Shinry](https://github.com/LorenzoDv). Thanks for the original work!
 
-Once saved, click on the extension icon to edit the filter's description to help you remember it. Then, simply click on Filter Link and you'll be redirected to the site with all your filters applied.
+## Features
 
-This project is still under development and is open-source. You can check out the code on GitHub.
+### Save Filter
+Save your trade filters and access them quickly from the extension popup. No more recreating complex searches!
 
-Feel free to share your feedback with me at the email address provided below.
+- Click "Save Filter" after performing a search
+- Add descriptions to remember what each filter is for
+- One-click access to your saved filters
 
-Have fun and happy trading!
+## Roadmap
 
-If you don't see the button, refresh the page.
+This project is under active development. Planned features include:
 
-The link to download the extension : <a href="https://chromewebstore.google.com/detail/poe2-save-trade-filter/nbnbkdemllokmclnniijkediimebjgho?authuser=0&hl=fr">Link</a>
+- **Price Comparison** - Compare item prices by similarity
+- **More tools coming soon...**
 
-<img src="https://github.com/LorenzoDv/poe2-trade-save-filter/blob/main/assets/img/savefilter1.png"> <br/><br/>
-<img src="https://github.com/LorenzoDv/poe2-trade-save-filter/blob/main/assets/img/savefilter2.png"> <br/><br/>
-<img src="https://github.com/LorenzoDv/poe2-trade-save-filter/blob/main/assets/img/savefilter3.png"> <br/><br/>
+## Installation
+
+### From Chrome Web Store
+*(Coming soon)*
+
+### Developer Mode
+1. Clone this repository
+2. Go to `chrome://extensions/`
+3. Enable "Developer mode"
+4. Click "Load unpacked" and select the extension folder
+
+## Screenshots
+
+<img src="https://github.com/gregoryderner/poe2-trade-save-filter/blob/main/assets/img/savefilter1.png" width="600">
+
+## Contributing
+
+Contributions are welcome! Feel free to open issues or submit pull requests.
+
+## License
+
+This project is open source.
+
+## Disclaimer
+
+This tool was developed by a community member and is not affiliated with Grinding Gear Games.
